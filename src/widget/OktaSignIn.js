@@ -23,6 +23,10 @@ var OktaSignIn = (function () {
             authClient: authClient,
             globalSuccessFn: (res) => {
               successFn && successFn(res); // call success function if provided
+              const statusesToIgnore = ['UNLOCK_ACCOUNT_EMAIL_SENT', 'FORGOT_PASSWORD_EMAIL_SENT'];
+              if (_.contains(statusesToIgnore, res.status)) {
+                return;
+              }
               resolve(res);
             },
             globalErrorFn: (error) => {
