@@ -241,7 +241,8 @@ module.exports = function (grunt) {
       'build-release': 'yarn build:webpack-release',
       'build-e2e-app': 'yarn build:webpack-e2e-app',
       'generate-config': 'yarn generate-config',
-      'run-protractor': 'yarn protractor'
+      'run-protractor': 'yarn protractor',
+      'pseudo-loc': 'node buildtools pseudo-loc',
     },
 
     sass: {
@@ -359,6 +360,7 @@ module.exports = function (grunt) {
       'copy:generate-in-translation',
       'propertiesToJSON',
       'copy:app-to-target',
+      'exec:pseudo-loc', // generates pseudo-loc
       'exec:generate-config', // populates src/config.json with supported languages
       'sass:build',
     ];
