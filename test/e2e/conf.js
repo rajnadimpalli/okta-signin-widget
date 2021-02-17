@@ -48,6 +48,14 @@ if (process.env.TRAVIS  || process.env.CHROME_HEADLESS) {
     };
   }
 
+  // Exclude tests based on whether we're running against OIE enabled org
+  if (process.env.OIE) {
+    config.exclude = ['specs/angular_spec.js', 'specs/basic_spec.js', 'specs/dev_spec.js',
+      'specs/npm_spec.js', 'specs/OIDC_spec.js', 'specs/react_spec.js'];
+  } else {
+    config.exclude = ['specs/OIE*.js'];
+  }
+
   if (process.env.SAUCE_PLATFORM_NAME === 'iOS') {
     var appiumiOS = require('./appium/ios-conf.js');
     config.port = 4723;
