@@ -17,7 +17,7 @@ const viewToDisplayState = {
 
 const Body = BaseForm.extend({
   title () {
-    return loc('oie.enroll.google_authenticator.setup.title', 'login');
+    return loc('oie.enroll.google_otp.setup.title', 'login');
   },
 
   noButtonBar: true,
@@ -27,7 +27,7 @@ const Body = BaseForm.extend({
   enterCodeSubtitle: View.extend({
     template: hbs`
       <div class="google-authenticator-setup-info-title enter-code-title">
-      {{i18n code="oie.enroll.google_authenticator.enterCode.title" bundle="login"}}
+      {{i18n code="oie.enroll.google_otp.enterCode.title" bundle="login"}}
       </div>
     `,
   }),

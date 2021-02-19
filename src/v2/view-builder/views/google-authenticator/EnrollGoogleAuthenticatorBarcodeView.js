@@ -6,16 +6,16 @@ export default View.extend({
   template: hbs`
       {{#if href}}
       <div class="google-authenticator-setup-info-title barcode-setup-title">
-        {{i18n code="oie.enroll.google_authenticator.scanBarcode.title" bundle="login"}}
+        {{i18n code="oie.enroll.google_otp.scanBarcode.title" bundle="login"}}
       </div>
       <div class="qrcode-info-container">
         <p class="google-authenticator-setup-info">
-          {{i18n code="oie.enroll.google_authenticator.scanBarcode.description" bundle="login"}}
+          {{i18n code="oie.enroll.google_otp.scanBarcode.description" bundle="login"}}
         </p>
         <div class="qrcode-container">
           <img class="qrcode" src={{href}} alt="qr code"></img>
           <a href="#" class="cannot-scan-link">
-            {{i18n code="oie.enroll.google_authenticator.scanBarcode.cannotScan" bundle="login"}}
+            {{i18n code="oie.enroll.google_otp.scanBarcode.cannotScan" bundle="login"}}
           </a>
         </div>
         </div>

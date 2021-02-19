@@ -8,11 +8,11 @@ const Body = BaseForm.extend(Object.assign(
     className: 'google-authenticator-challenge',
 
     title () {
-      return loc('oie.verify.google_authenticator.otp.title', 'login');
+      return loc('oie.verify.google_otp.title', 'login');
     },
 
     subtitle () {
-      return loc('oie.verify.google_authenticator.otp.description', 'login');
+      return loc('oie.verify.google_otp.description', 'login');
     },
 
     save () {
