@@ -1,6 +1,7 @@
 /*globals module, Promise */
 import _ from 'underscore';
 import Errors from 'util/Errors';
+import Enums from 'util/Enums';
 import Util from 'util/Util';
 import createAuthClient from 'widget/createAuthClient';
 import V1Router from 'LoginRouter';
@@ -23,11 +24,9 @@ var OktaSignIn = (function () {
             authClient: authClient,
             globalSuccessFn: (res) => {
               successFn && successFn(res); // call success function if provided
-              const statusesToIgnore = ['UNLOCK_ACCOUNT_EMAIL_SENT', 'FORGOT_PASSWORD_EMAIL_SENT'];
-              if (_.contains(statusesToIgnore, res.status)) {
-                return;
+              if (res.status === Enums.SUCCESS) {
+                resolve(res);
               }
-              resolve(res);
             },
             globalErrorFn: (error) => {
               errorFn && errorFn(error); // call error function if provided
